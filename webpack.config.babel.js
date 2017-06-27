@@ -9,6 +9,13 @@ export default {
     path: path.join(__dirname, '/dist'),
     filename: 'bundle.js'
   },
+  devtool: 'source-map',
+  devServer: {
+    contentBase: path.join(__dirname, "dist"),
+    compress: true,
+    port: 3333,
+    // hot: trues
+  },
   module: {
     rules: [
       {
@@ -35,7 +42,7 @@ export default {
       template: path.join(__dirname, 'src', 'index.pug'),
     }),
     new ExtractTextPlugin({ filename: 'main.css', allChunks: true }),
-    new CleanWebpackPlugin(path.join(__dirname , 'dist'))
+    new CleanWebpackPlugin(path.join(__dirname, 'dist'))
   ]
 }
 
